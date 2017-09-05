@@ -12,6 +12,8 @@
 		490D1A1E1F5E161C00D210A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490D1A1C1F5E161C00D210A6 /* Main.storyboard */; };
 		490D1A201F5E161C00D210A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 490D1A1F1F5E161C00D210A6 /* Assets.xcassets */; };
 		490D1A231F5E161C00D210A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490D1A211F5E161C00D210A6 /* LaunchScreen.storyboard */; };
+		490D1A2B1F5EBCF700D210A6 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D1A2A1F5EBCF700D210A6 /* TextField.swift */; };
+		490D1A2D1F5ED23300D210A6 /* DeviceScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D1A2C1F5ED23300D210A6 /* DeviceScale.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		490D1A1F1F5E161C00D210A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		490D1A221F5E161C00D210A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		490D1A241F5E161C00D210A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		490D1A2A1F5EBCF700D210A6 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		490D1A2C1F5ED23300D210A6 /* DeviceScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceScale.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				490D1A181F5E161C00D210A6 /* AppDelegate.swift */,
 				490D1A1A1F5E161C00D210A6 /* ViewController.swift */,
+				490D1A2A1F5EBCF700D210A6 /* TextField.swift */,
+				490D1A2C1F5ED23300D210A6 /* DeviceScale.swift */,
 				490D1A1C1F5E161C00D210A6 /* Main.storyboard */,
 				490D1A1F1F5E161C00D210A6 /* Assets.xcassets */,
 				490D1A211F5E161C00D210A6 /* LaunchScreen.storyboard */,
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				490D1A2D1F5ED23300D210A6 /* DeviceScale.swift in Sources */,
+				490D1A2B1F5EBCF700D210A6 /* TextField.swift in Sources */,
 				490D1A1B1F5E161C00D210A6 /* ViewController.swift in Sources */,
 				490D1A191F5E161C00D210A6 /* AppDelegate.swift in Sources */,
 			);
@@ -304,6 +312,7 @@
 				490D1A291F5E161C00D210A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
