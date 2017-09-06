@@ -22,11 +22,20 @@ class ViewController: UIViewController{
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        decimalTextfield = UITextField(frame: CGRect(x: 35, y: 100, width: 300, height: 35), placeholder: "Decimal Number", target: self, action: #selector(decimalDidChange(_:)))
+        decimalTextfield = UITextField(frame: CGRect(x: 35, y: 100, width: 300, height: 35),
+                                       placeholder: "Decimal Number",
+                                       target: self,
+                                       action: #selector(decimalDidChange(_:)))
         
-        binaryTextfield = UITextField(frame: CGRect(x: 35, y: 180, width: 300, height: 35), placeholder: "Binary Number", target: self, action: #selector(binaryDidChange(_:)))
+        binaryTextfield = UITextField(frame: CGRect(x: 35, y: 180, width: 300, height: 35),
+                                      placeholder: "Binary Number",
+                                      target: self,
+                                      action: #selector(binaryDidChange(_:)))
         
-        hexadecimalTextfield = UITextField(frame: CGRect(x: 35, y: 260, width: 300, height: 35), placeholder: "Hexadecimal Number", target: self, action: #selector(hexadecimalDidChange(_:)))
+        hexadecimalTextfield = UITextField(frame: CGRect(x: 35, y: 260, width: 300, height: 35),
+                                           placeholder: "Hexadecimal Number",
+                                           target: self,
+                                           action: #selector(hexadecimalDidChange(_:)))
         
         view.addSubview(decimalTextfield)
         view.addSubview(binaryTextfield)
@@ -34,6 +43,7 @@ class ViewController: UIViewController{
     }
     
     func decimalDidChange(_ textfield: UITextField){
+        
         if !shouldEdit{
             return
         }
@@ -44,22 +54,21 @@ class ViewController: UIViewController{
             shouldEdit = true
         }else if let deletedDecimal = textfield.text, deletedDecimal.isEmpty{
             shouldEdit = false
-            binaryTextfield.text = deletedDecimal
-            hexadecimalTextfield.text = deletedDecimal
+            binaryTextfield.text = ""
+            hexadecimalTextfield.text = ""
             shouldEdit = true
         }else{
-            let decimalAlert = UIAlertController(title: "Ops!", message: "This is not a valid decimal number", preferredStyle: UIAlertControllerStyle.alert)
-            self.present(decimalAlert, animated: true, completion: nil)
-            decimalAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-                decimalAlert.dismiss(animated: true, completion: nil)
-            }))
+            showDialog(title: "Ops!",
+                       message: "This is not a valid decimal number")
         }
     }
     
     func binaryDidChange(_ textfield: UITextField){
+        
         if !shouldEdit{
             return
         }
+        
         if let decimal = Int(textfield.text!, radix: 2){
             shouldEdit = false
             decimalTextfield.text = String(decimal)
@@ -67,22 +76,21 @@ class ViewController: UIViewController{
             shouldEdit = true
         }else if let deletedBinary = textfield.text, deletedBinary.isEmpty{
             shouldEdit = false
-            decimalTextfield.text = deletedBinary
-            hexadecimalTextfield.text = deletedBinary
+            decimalTextfield.text = ""
+            hexadecimalTextfield.text = ""
             shouldEdit = true
         }else{
-            let binaryAlert = UIAlertController(title: "Ops!", message: "This is not a valid binary number", preferredStyle: UIAlertControllerStyle.alert)
-            self.present(binaryAlert, animated: true, completion: nil)
-            binaryAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-                binaryAlert.dismiss(animated: true, completion: nil)
-            }))
+            showDialog(title: "Ops!",
+                       message: "This is not a valid binary number")
         }
     }
     
     func hexadecimalDidChange(_ textfield: UITextField){
+        
         if !shouldEdit{
             return
         }
+        
         if let decimal = Int(textfield.text!, radix: 16){
             shouldEdit = false
             decimalTextfield.text = String(decimal)
@@ -90,16 +98,25 @@ class ViewController: UIViewController{
             shouldEdit = true
         }else if let deletedHexadecimal = textfield.text, deletedHexadecimal.isEmpty{
             shouldEdit = false
-            decimalTextfield.text = deletedHexadecimal
-            binaryTextfield.text = deletedHexadecimal
+            decimalTextfield.text = ""
+            binaryTextfield.text = ""
             shouldEdit = true
         }else{
-            let hexadecimalAlert = UIAlertController(title: "Ops!", message: "This is not a valid hexadecimal number", preferredStyle: UIAlertControllerStyle.alert)
-            self.present(hexadecimalAlert, animated: true, completion: nil)
-            hexadecimalAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-                hexadecimalAlert.dismiss(animated: true, completion: nil)
-            }))
+            showDialog(title: "Ops!",
+                       message: "This is not a valid hexadecimal number")
         }
+    }
+    
+    private func showDialog(title : String, message: String) {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: UIAlertControllerStyle.alert)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
     }
     
     func dismissKeyboard() {
@@ -108,7 +125,6 @@ class ViewController: UIViewController{
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
